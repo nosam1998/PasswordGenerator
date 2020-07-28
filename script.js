@@ -21,10 +21,10 @@ function generatePassword() {
     let pwdLen = parseInt(prompt("How long do you want your password? Please type a number between 8 and 128!"));
 
     if (pwdLen >= 8 && pwdLen <= 128) {
-        let lwrChoice = confirm("Click OK if you want lower")
-        let uprChoice = confirm("Do you want upper case characters in your password? Type 'y' or 'n'")
-        let numChoice = confirm("Do you want numbers in your password? Type 'y' or 'n'")
-        let spclChoice = confirm("Do you want special characters in your password? Type 'y' or 'n'")
+        let lwrChoice = confirm("Click OK if you want lower case characters in your password.");
+        let uprChoice = confirm("Click OK if you want upper case characters in your password.");
+        let numChoice = confirm("Click OK if you want numbers in your password.");
+        let spclChoice = confirm("Click OK if you want special characters in your password.");
 
         if (lwrChoice) {
             passwordCharStr += lwr;
