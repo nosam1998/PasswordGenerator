@@ -2,6 +2,14 @@
 let generateBtn = document.querySelector("#generate");
 
 
+// FROM:  https://stackoverflow.com/a/12646864/9297141
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 // Write password to the #password input
 function writePassword() {
     let password = generatePassword();
@@ -14,7 +22,7 @@ function generatePassword() {
     let upr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let nums = "1234567890";
     let specialChars = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    let passwordStr = "";
+    let passwordStr = [];
     let passwordCharStr = "";
     let randInt;
 
@@ -45,7 +53,7 @@ function generatePassword() {
         if (passwordCharStr.length !== 0) {
             for (let i = 0; i < pwdLen; i++) {
                 randInt = Math.floor(Math.random() * passwordCharStr.length);
-                passwordStr += passwordCharStr[randInt];
+                passwordStr.push(passwordCharStr[randInt]);
             }
         } else {
             alert("Please select at least one option!");
@@ -57,6 +65,9 @@ function generatePassword() {
     } else {
         alert("Something went wrong!");
     }
+
+    shuffle(passwordStr); // Shuffle the password string array
+    passwordStr = passwordStr.join(""); // Create a string version of the array
 
     if (passwordStr.length === 0) {
         return "";
