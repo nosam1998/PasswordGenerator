@@ -66,12 +66,12 @@ function generatePassword() {
         alert("Something went wrong!");
     }
 
-    shuffle(passwordStr); // Shuffle the password string array
-    passwordStr = passwordStr.join(""); // Create a string version of the array
 
     if (passwordStr.length === 0) {
         return "";
     } else {
+        shuffle(passwordStr); // Shuffle the password string array
+        passwordStr = passwordStr.join(""); // Create a string version of the array
         return passwordStr;
     }
 }
