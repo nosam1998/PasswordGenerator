@@ -22,7 +22,7 @@ function generatePassword() {
     let upr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let nums = "1234567890";
     let specialChars = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    let passwordStr = [];
+    let passwordStr = "";
     let passwordCharStr = "";
     let randInt;
 
@@ -53,7 +53,7 @@ function generatePassword() {
         if (passwordCharStr.length !== 0) {
             for (let i = 0; i < pwdLen; i++) {
                 randInt = Math.floor(Math.random() * passwordCharStr.length);
-                passwordStr.push(passwordCharStr[randInt]);
+                passwordStr += passwordCharStr[randInt];
             }
         } else {
             alert("Please select at least one option!");
@@ -66,12 +66,12 @@ function generatePassword() {
         alert("Something went wrong!");
     }
 
+    return passwordStr;
+
 
     if (passwordStr.length === 0) {
         return "";
     } else {
-        shuffle(passwordStr); // Shuffle the password string array
-        passwordStr = passwordStr.join(""); // Create a string version of the array
         return passwordStr;
     }
 }
